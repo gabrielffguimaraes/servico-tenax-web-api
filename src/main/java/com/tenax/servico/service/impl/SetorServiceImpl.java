@@ -73,4 +73,10 @@ public class SetorServiceImpl implements SetorService {
 
         return setorRepository.save(setor);
     }
+
+    @Override
+    public Setor findById(Long id) {
+        return setorRepository.findById(id)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND,"Setor inexistente"));
+    }
 }

@@ -29,6 +29,12 @@ public class SetorController {
         return ResponseEntity.ok(setorService.findAll());
     }
 
+    @GetMapping("${id}")
+    @Operation(summary = "Listar por id")
+    public ResponseEntity<Setor> findById(@PathVariable("id") Long id) {
+        return ResponseEntity.ok(setorService.findById(id));
+    }
+
     @PostMapping
     @Operation(summary = "Criar novo setor")
     public ResponseEntity<SetorCreatedDto> create(@RequestBody SetorCreateDto setor) {

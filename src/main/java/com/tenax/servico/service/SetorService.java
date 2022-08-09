@@ -15,4 +15,6 @@ public interface SetorService {
     void deleteById(Long id);
 
     Setor update(Long id, SetorCreateDto setorDto);
+
+    Setor findById(Long id);
 }
