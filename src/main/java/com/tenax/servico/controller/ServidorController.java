@@ -15,6 +15,7 @@ import java.util.List;
 @RestController
 @RequestMapping("api/v1/servidor")
 @Tag(name = "Servidores", description = "manter servidores endpoits api")
+@CrossOrigin(origins = {"${settings.cors_origin}"})
 public class ServidorController {
     private final ServidorServiceImpl servidorService;
 
