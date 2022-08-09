@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @Tag(name = "Status", description = "checar status da aplicação")
-@CrossOrigin(origins = {"${settings.cors_origin}"})
 public class StatusController {
     @GetMapping("/status")
     @Operation(summary = "Status da aplicação")
