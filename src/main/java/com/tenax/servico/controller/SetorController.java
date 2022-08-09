@@ -29,9 +29,10 @@ public class SetorController {
         return ResponseEntity.ok(setorService.findAll());
     }
 
-    @GetMapping("${id}")
+
     @Operation(summary = "Listar por id")
-    public ResponseEntity<Setor> findById(@PathVariable("id") Long id) {
+    @GetMapping("{id}")
+    public ResponseEntity<Setor> findById(@PathVariable(value = "id") Long id) {
         return ResponseEntity.ok(setorService.findById(id));
     }
 
