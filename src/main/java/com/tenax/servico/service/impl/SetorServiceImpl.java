@@ -67,7 +67,6 @@ public class SetorServiceImpl implements SetorService {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST,"Setor já existe");
         }
 
-
         setor.setDescricao(setorCreateDto.getDescricao());
         setor.setUf(setorCreateDto.getUf());
 
