@@ -8,6 +8,6 @@ spring:
     username: postgres
     password: 123456
     url: jdbc:postgresql://localhost:5432/servico_web_api
-  #jpa:
-    #generate-ddl: true
-    #show-sql: true
+  jpa:
+    generate-ddl: true
+    show-sql: true

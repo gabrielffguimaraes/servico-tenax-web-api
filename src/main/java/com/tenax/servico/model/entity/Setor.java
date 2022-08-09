@@ -1,5 +1,6 @@
 package com.tenax.servico.model.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -19,6 +20,7 @@ public class Setor {
     @Column(nullable = false)
     String uf;
 
+    @JsonIgnoreProperties("setor")
     @OneToMany(mappedBy = "setor", fetch = FetchType.EAGER)
-    List<Servidor> servidores;
+    List<Servidor> servidor;
 }
