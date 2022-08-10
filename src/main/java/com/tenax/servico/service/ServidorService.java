@@ -8,7 +8,7 @@ import com.tenax.servico.model.entity.Setor;
 import java.util.List;
 
 public interface ServidorService {
-    List<Servidor> findAll();
+    List<Servidor> findAll(String nome);
 
     ServidorCreatedDto save(ServidorCreateDto servidor);
 

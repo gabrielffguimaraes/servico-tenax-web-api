@@ -17,4 +17,7 @@ public interface SetorRepository extends JpaRepository<Setor,Long> {
 
     @Query("select count(s) from Setor s where upper(s.descricao) = upper(:descricao)")
     Long verificarDescricaoValida(@Param("descricao") String descricao);
+
+    @Query("select s from Setor s where s.descricao like :descricao and :descricao != ''")
+    List<Setor> findAll(@Param("descricao") String descricao);
 }

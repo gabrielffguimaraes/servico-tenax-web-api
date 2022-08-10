@@ -31,8 +31,8 @@ public class ServidorServiceImpl implements ServidorService {
         this.setorRepository = setorRepository;
     }
 
-    public List<Servidor> findAll() {
-        return servidorRepository.findAll();
+    public List<Servidor> findAll(String nome) {
+        return servidorRepository.findAll("%"+nome+"%");
     }
 
     @Override

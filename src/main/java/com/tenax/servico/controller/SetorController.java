@@ -26,8 +26,8 @@ public class SetorController {
 
     @GetMapping
     @Operation(summary = "Listar todos")
-    public ResponseEntity<List<Setor>> findAll() {
-        return ResponseEntity.ok(setorService.findAll());
+    public ResponseEntity<List<Setor>> findAll(@RequestParam(name = "descricao",required = false,defaultValue = "") String descricao) {
+        return ResponseEntity.ok(setorService.findAll(descricao));
     }
 
 

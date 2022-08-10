@@ -33,8 +33,8 @@ public class SetorServiceImpl implements SetorService {
         this.mapHelper = mapHelper;
     }
 
-    public List<Setor> findAll() {
-        return setorRepository.findAll();
+    public List<Setor> findAll(String descricao) {
+        return setorRepository.findAll("%"+descricao+"%");
     }
 
     @Override

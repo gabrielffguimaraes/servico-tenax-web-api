@@ -26,8 +26,8 @@ public class ServidorController {
 
     @GetMapping
     @Operation(summary = "Listar todos")
-    public ResponseEntity<List<Servidor>> findAll() {
-        List<Servidor> servidores = servidorService.findAll();
+    public ResponseEntity<List<Servidor>> findAll(@RequestParam(name = "nome",required = false,defaultValue = "") String nome) {
+        List<Servidor> servidores = servidorService.findAll(nome);
         return ResponseEntity.ok(servidores);
     }
 

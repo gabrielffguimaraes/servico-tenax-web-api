@@ -15,4 +15,7 @@ public interface ServidorRepository extends JpaRepository<Servidor,Long> {
 
     @Query("select count(s) from Servidor s where upper(s.nome) = upper(:nome)")
     Long verificarNomeValido(@Param("nome") String nome);
+
+    @Query("select s from Servidor s where s.nome like :nome and :nome != ''")
+    List<Servidor> findAll(@Param("nome") String nome);
 }
