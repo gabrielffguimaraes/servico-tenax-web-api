@@ -10,9 +10,9 @@ import java.util.List;
 
 @Repository
 public interface ServidorRepository extends JpaRepository<Servidor,Long> {
-    @Query("select count(s) from Servidor s where s.nome = :nome and s.id != :id")
+    @Query("select count(s) from Servidor s where upper(s.nome) = upper(:nome) and s.id != :id")
     Long verificarNomeValido(@Param("id") Long id, @Param("nome") String nome);
 
-    @Query("select count(s) from Servidor s where s.nome = :nome")
+    @Query("select count(s) from Servidor s where upper(s.nome) = upper(:nome)")
     Long verificarNomeValido(@Param("nome") String nome);
 }

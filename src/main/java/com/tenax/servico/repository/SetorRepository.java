@@ -12,9 +12,9 @@ import java.util.Set;
 
 @Repository
 public interface SetorRepository extends JpaRepository<Setor,Long> {
-    @Query("select count(s) from Setor s where s.descricao = :descricao and s.id != :id")
+    @Query("select count(s) from Setor s where upper(s.descricao) = upper(:descricao) and s.id != :id")
     Long verificarDescricaoValida(@Param("id") Long id,@Param("descricao") String descricao);
 
-    @Query("select count(s) from Setor s where s.descricao = :descricao")
+    @Query("select count(s) from Setor s where upper(s.descricao) = upper(:descricao)")
     Long verificarDescricaoValida(@Param("descricao") String descricao);
 }
