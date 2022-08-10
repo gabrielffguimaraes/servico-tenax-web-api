@@ -37,8 +37,13 @@ public class ServidorServiceImpl implements ServidorService {
 
     @Override
     public ServidorCreatedDto save(ServidorCreateDto sevidorCreateDto) {
+        long servidorJaExiste = servidorRepository.verificarNomeValido(sevidorCreateDto.getNome());
+        if(servidorJaExiste > 0) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST,"Servidor já existe");
+        }
         Setor setor = setorRepository.findById(sevidorCreateDto.getSetorId())
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND,"Setor inexistente"));
+
 
         Servidor s = modelMapper.map(sevidorCreateDto,Servidor.class);
         return modelMapper.map(servidorRepository.save(s),ServidorCreatedDto.class);
@@ -52,6 +57,10 @@ public class ServidorServiceImpl implements ServidorService {
     }
 
     public Servidor update(Long id, ServidorCreateDto ServidorCreateDto) {
+        long servidorJaExiste = servidorRepository.verificarNomeValido(id,ServidorCreateDto.getNome());
+        if(servidorJaExiste > 0) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST,"Servidor já existe");
+        }
         Setor setor = setorRepository.findById(ServidorCreateDto.getSetorId())
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND,"Setor inexistente"));
         Servidor Servidor = servidorRepository.findById(id)
@@ -61,5 +70,10 @@ public class ServidorServiceImpl implements ServidorService {
         Servidor.setDescricao(ServidorCreateDto.getDescricao());
         Servidor.setSetor(setor);
         return servidorRepository.save(Servidor);
+    }
+
+    public Servidor findById(Long id) {
+        return servidorRepository.findById(id)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND,"Servidor inexistente"));
     }
 }

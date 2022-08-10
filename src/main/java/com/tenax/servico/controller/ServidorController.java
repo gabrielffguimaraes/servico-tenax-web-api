@@ -29,6 +29,12 @@ public class ServidorController {
         return ResponseEntity.ok(servidores);
     }
 
+    @Operation(summary = "Listar por id")
+    @GetMapping("{id}")
+    public ResponseEntity<Servidor> findById(@PathVariable(value = "id") Long id) {
+        return ResponseEntity.ok(servidorService.findById(id));
+    }
+
     @PostMapping
     @Operation(summary = "Criar servidor")
     public ResponseEntity<ServidorCreatedDto> create(@RequestBody ServidorCreateDto servidor) {
