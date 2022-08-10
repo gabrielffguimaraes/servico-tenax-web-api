@@ -20,7 +20,6 @@ public class Servidor {
     @Column(nullable = false,unique = true)
     String nome;
 
-    @Column(nullable = false,unique = true)
     String descricao;
 
     @JsonIgnoreProperties("servidor")
