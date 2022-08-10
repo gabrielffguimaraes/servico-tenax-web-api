@@ -22,12 +22,12 @@ Serviço Web Api cadastro de servidores e setores servindo uma api na nuvem .
   ``` spring.profiles.active=dev ```
 </li>
 <li>
-  1 - sugestão docker : 
+  2 - sugestão docker : 
   
   ``` docker run --name dbpostgres -e POSTGRES_PASSWORD=123456 -d -p 127.0.0.1:5432:5432 postgres ```
 </li>
 <li>
-  2 - criar o banco de dados : 
+  3 - criar o banco de dados : 
   
   ``` craete database servico_web_api  ```
 </li>
