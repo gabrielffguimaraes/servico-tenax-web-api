@@ -10,6 +10,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -37,7 +39,7 @@ public class ServidorController {
 
     @PostMapping
     @Operation(summary = "Criar servidor")
-    public ResponseEntity<ServidorCreatedDto> create(@RequestBody ServidorCreateDto servidor) {
+    public ResponseEntity<ServidorCreatedDto> create(@RequestBody @Valid ServidorCreateDto servidor) {
         ServidorCreatedDto servidorCreated = servidorService.save(servidor);
         return ResponseEntity.status(HttpStatus.CREATED).body(servidorCreated);
     }
@@ -52,7 +54,7 @@ public class ServidorController {
 
     @PutMapping("/{id}")
     @Operation(summary = "Atualizar servidor")
-    public Servidor update(@RequestBody ServidorCreateDto servidor,@PathVariable Long id) {
+    public Servidor update(@RequestBody @Valid ServidorCreateDto servidor,@PathVariable Long id) {
         return servidorService.update(id,servidor);
     }
 }

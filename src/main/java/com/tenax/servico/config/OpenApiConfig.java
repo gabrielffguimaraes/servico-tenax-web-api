@@ -8,7 +8,7 @@ import io.swagger.v3.oas.annotations.info.License;
 
 @OpenAPIDefinition(
         info = @Info(
-                title = "Serviço api Servidores e Setores",
+                title = "${spring.profile.application.name}",
                 description = "" +
                         "Serviço api com consulta ao banco de dados , cadastro de servidores e setores .",
                 contact = @Contact(

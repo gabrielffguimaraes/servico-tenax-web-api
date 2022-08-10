@@ -11,6 +11,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -38,7 +39,7 @@ public class SetorController {
 
     @PostMapping
     @Operation(summary = "Criar novo setor")
-    public ResponseEntity<SetorCreatedDto> create(@RequestBody SetorCreateDto setor) {
+    public ResponseEntity<SetorCreatedDto> create(@RequestBody @Valid SetorCreateDto setor) {
         return ResponseEntity.status(HttpStatus.CREATED).body(setorService.save(setor));
     }
 
@@ -52,7 +53,7 @@ public class SetorController {
 
     @PutMapping("/{id}")
     @Operation(summary = "Atualizar setor")
-    public ResponseEntity<Setor> update(@RequestBody SetorCreateDto setor,@PathVariable Long id) {
+    public ResponseEntity<Setor> update(@RequestBody @Valid SetorCreateDto setor,@PathVariable Long id) {
         return ResponseEntity.ok(setorService.update(id,setor));
     }
 }
