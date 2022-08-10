@@ -13,8 +13,9 @@ import javax.validation.constraints.NotBlank;
 @AllArgsConstructor
 public class SetorCreateDto {
     @NotBlank(message = "Descricao obrigatória")
+    @Length(min = 2,max = 255,message = "Descrição Deve conter no minimo 2 caracteres e no máximo 255 .")
     String descricao;
     @NotBlank(message = "UF obrigatório")
-    @Length(min = 2,max = 2,message = "Deve conter 2 caracteres")
+    @Length(min = 2,max = 2,message = "UF Deve conter 2 caracteres")
     String uf;
 }
