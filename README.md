@@ -1,4 +1,4 @@
-# <a target="_new" href="https://gabrielffguimaraes.github.io/servico-tenax-web-app/"> 🚀 servico-web-api</a>
+# <a target="_new" href="https://servico-tenax-web-api.herokuapp.com/swagger-ui/index.html"> 🚀 servico-web-api</a>
 
 Serviço Web Api cadastro de servidores e setores servindo uma api na nuvem .
 
