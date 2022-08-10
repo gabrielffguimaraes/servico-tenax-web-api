@@ -1,2 +1,2 @@
-# <a href="https://gabrielffguimaraes.github.io/servico-tenax-web-app/">servico-web-api</a>
+# <a target="_blank" href="https://gabrielffguimaraes.github.io/servico-tenax-web-app/">servico-web-api</a>
 Serviço Web Api com acesso ao banco de dados.
