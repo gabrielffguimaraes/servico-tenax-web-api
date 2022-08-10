@@ -16,15 +16,18 @@ import java.util.List;
 
 @Configuration
 public class CorsFilterConfig  {
-    @Value("${settings.cors_origin}")
-    String allowedOrigin;
+    @Value("${settings.cors_origin_localhost}")
+    String localhost;
+
+    @Value("${settings.cors_origin_git}")
+    String git;
 
     @Bean
     public FilterRegistrationBean<CorsFilter> corsFilterFilterRegistrationBean(){
 
         CorsConfiguration corsConfiguration = new CorsConfiguration();
         List<String> All = Arrays.asList("*");
-        corsConfiguration.setAllowedOrigins(Arrays.asList(allowedOrigin));
+        corsConfiguration.setAllowedOrigins(Arrays.asList(localhost,git));
         corsConfiguration.setAllowedHeaders(All);
         corsConfiguration.setAllowedMethods(All);
         corsConfiguration.setAllowCredentials(true);
