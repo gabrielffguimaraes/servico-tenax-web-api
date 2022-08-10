@@ -46,6 +46,7 @@ public class ServidorServiceImpl implements ServidorService {
 
 
         Servidor s = modelMapper.map(sevidorCreateDto,Servidor.class);
+        s.setId(null);
         return modelMapper.map(servidorRepository.save(s),ServidorCreatedDto.class);
     }
 
