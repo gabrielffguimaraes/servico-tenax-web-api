@@ -15,7 +15,7 @@ Serviço Web Api cadastro de servidores e setores servindo uma api na nuvem .
 </ul>
 
 <h5>INSTRUÇÕES LOCALHOST</h5>
-<small>Para rodar o mini projeto no localhost é necessário criar o database postgres </small>
+<small>Para rodar o mini projeto no localhost é necessário instalar o database postgres </small>
 <li>
   1 - alterar o profile para dev .
   
