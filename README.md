@@ -29,6 +29,6 @@ Serviço Web Api cadastro de servidores e setores servindo uma api na nuvem .
 <li>
   3 - criar o banco de dados : 
   
-  ``` craete database servico_web_api  ```
+  ``` create database servico_web_api  ```
 </li>
 
