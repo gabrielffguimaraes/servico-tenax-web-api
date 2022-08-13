@@ -6,6 +6,7 @@ Serviço Web Api cadastro de servidores e setores servindo uma api na nuvem .
 <small>Boas praticas de programação utilizadas</small>
 <ul>
   <li>Reaproveitamento de código</li>
+  <li>Listas Paginadas</li>
   <li>Herança</li>
   <li>Polimosfismo</li>
   <li>Validacoes personalizadas </li>
