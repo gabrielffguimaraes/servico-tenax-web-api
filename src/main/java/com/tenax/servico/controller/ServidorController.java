@@ -6,6 +6,9 @@ import com.tenax.servico.model.entity.Servidor;
 import com.tenax.servico.service.impl.ServidorServiceImpl;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -26,8 +29,13 @@ public class ServidorController {
 
     @GetMapping
     @Operation(summary = "Listar todos")
-    public ResponseEntity<List<Servidor>> findAll(@RequestParam(name = "nome",required = false,defaultValue = "") String nome) {
-        List<Servidor> servidores = servidorService.findAll(nome);
+    public ResponseEntity<Page<Servidor>> findAll(
+            @RequestParam(name = "nome",required = false,defaultValue = "") String nome,
+            @RequestParam(name = "pagina",required = false,defaultValue = "0") Integer pagina,
+            @RequestParam(name = "tamanho",required = false,defaultValue = "10") Integer tamanho
+    ) {
+        Pageable p = PageRequest.of(pagina,tamanho);
+        Page<Servidor> servidores = servidorService.findAll(p,nome);
         return ResponseEntity.ok(servidores);
     }
 

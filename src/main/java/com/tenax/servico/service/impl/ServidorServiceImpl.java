@@ -9,6 +9,8 @@ import com.tenax.servico.repository.ServidorRepository;
 import com.tenax.servico.repository.SetorRepository;
 import com.tenax.servico.service.ServidorService;
 import org.modelmapper.ModelMapper;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
@@ -31,8 +33,8 @@ public class ServidorServiceImpl implements ServidorService {
         this.setorRepository = setorRepository;
     }
 
-    public List<Servidor> findAll(String nome) {
-        return servidorRepository.findAll("%"+nome+"%");
+    public Page<Servidor> findAll(Pageable p, String nome) {
+        return servidorRepository.findAll(p,"%"+nome+"%");
     }
 
     @Override

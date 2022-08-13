@@ -1,6 +1,8 @@
 package com.tenax.servico.repository;
 
 import com.tenax.servico.model.entity.Servidor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -17,5 +19,5 @@ public interface ServidorRepository extends JpaRepository<Servidor,Long> {
     Long verificarNomeValido(@Param("nome") String nome);
 
     @Query("select s from Servidor s where upper(s.nome) like upper(:nome) and :nome != ''")
-    List<Servidor> findAll(@Param("nome") String nome);
+    Page<Servidor> findAll(Pageable var1, @Param("nome") String nome);
 }
